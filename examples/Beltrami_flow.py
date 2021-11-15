@@ -1,8 +1,6 @@
 """Backend supported: tensorflow.compat.v1, tensorflow, pytorch"""
 import deepxde as dde
 import numpy as np
-
-
 a = 1
 d = 1
 Re = 1
