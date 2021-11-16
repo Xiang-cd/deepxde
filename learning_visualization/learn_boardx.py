@@ -9,7 +9,9 @@ train_data = torchvision.datasets.MNIST(root="./data/", train=True,
                                         download=False)
 
 train_loader = Data.DataLoader(dataset=train_data, batch_size=128, shuffle=True)
-test_data = torchvision.datasets.MNIST(root="./data/", train=False, download=True)
+test_data = torchvision.datasets.MNIST(root="./data/", transform=torchvision.transforms.ToTensor(),
+                                       train=False, download=False)
+test_loader = Data.DataLoader(dataset=test_data, batch_size=128, shuffle=True)
 
 
 class CNN(nn.Module):
@@ -29,11 +31,11 @@ class CNN(nn.Module):
             nn.Linear(28 * 28, 10)
         )
 
-    def forward(self,x):
+    def forward(self, x):
         x = self.mlp(x)
         return x
 
+
 mycnn = CNN()
-print(mycnn)
 
 writer = SummaryWriter('./results')
