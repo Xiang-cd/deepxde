@@ -61,6 +61,6 @@ img_grid = torchvision.utils.make_grid(image)
 matplotlib_imshow(img_grid, True)
 
 writer = SummaryWriter('runs/fashion_mnist_experiment_1')
-writer.add_graph(mycnn, image)
+# writer.add_graph(mycnn, image)
 writer.add_image('four_fashion_mnist_images', img_grid)
 writer.close()
